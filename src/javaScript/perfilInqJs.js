@@ -3,7 +3,7 @@ let usuario = JSON.parse(datosGuardados);
 
 
     if (!usuario) {
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     }
 
 
@@ -23,7 +23,7 @@ let usuario = JSON.parse(datosGuardados);
 
     document.getElementById("registro").addEventListener("click", () => {
         localStorage.removeItem('usuario');
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     });
 
     
