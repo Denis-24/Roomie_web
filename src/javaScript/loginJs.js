@@ -6,19 +6,21 @@ botonLogin.addEventListener("click", (e) => {
     const correoInput = document.getElementById("email").value.trim();
     const pwdInput = document.getElementById("pwd").value;
 
-    // Leer las listas del LocalStorage
-    const inq = JSON.parse(localStorage.getItem('listaInquilinos')) || [];
-    const arr = JSON.parse(localStorage.getItem('listaArrendadores')) || [];
-    
-    // Unir todos los usuarios registrados
-    const todos = [...inq, ...arr];
+    const todos = JSON.parse(localStorage.getItem('listaUsuarios')) || [];
 
     // Buscar coincidencia
     const encontrado = todos.find(u => u.correo === correoInput && u.contrasenya === pwdInput);
+    
 
     if (encontrado) {
+        const inq = encontrado.tipo;
         localStorage.setItem('usuario', JSON.stringify(encontrado));
-        window.location.href = "inicio.html";
+        if(inq === "Inquilino"){
+            window.location.href = "perfil-inquilino.html";
+        }else if(inq === "Arrendador"){
+            window.location.href = "perfil-arrendador.html";
+        }
+        
     } else {
         alert("Usuario no encontrado o datos incorrectos");
     }
