@@ -3,14 +3,14 @@ let usuario = JSON.parse(datosGuardados);
 const ListaHabitciones = document.querySelectorAll(".habitaciones");
 
 if (!usuario) {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 } else {
     let perfil = document.getElementById("perfil");
     perfil.innerHTML = `${usuario.nombre}`;
 
     document.getElementById("registro").addEventListener("click", () => {
         localStorage.removeItem('usuario');
-        window.location.href = "login.html";
+        window.location.href = "index.html";
     });
 
     //El boton del perfil manda al perfil de inquilino o de arrendador dependiendo el tipo de usuario
