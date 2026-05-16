@@ -3,25 +3,13 @@ let usuario = JSON.parse(datosGuardados);
 
 
     if (!usuario) {
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     }
 
 
     let inq = usuario.tipo;
     let perfil = document.getElementById("perfil");
     perfil.innerHTML = `${usuario.nombre}`;
-
-    /*
-        let contenedor = document.querySelector('.contenedor');
-    contenedor.innerHTML = `
-        <div style="padding: 20px; border: 1px solid #ccc; border-radius: 8px;">
-            <h3>Mis Datos</h3>
-            <p><strong>Nombre:</strong> ${usuario.nombre} ${usuario.apellidos}</p>
-            <p><strong>Correo:</strong> ${usuario.correo}</p>
-            <p><strong>Teléfono:</strong> ${usuario.telefono}</p>
-        </div>
-    `;
-    */ 
 
     perfil.addEventListener("click", () => {
         if(inq === "Inquilino"){
@@ -34,7 +22,7 @@ let usuario = JSON.parse(datosGuardados);
 
     document.getElementById("registro").addEventListener("click", () => {
         localStorage.removeItem('usuario');
-        window.location.href = "index.html";
+        window.location.href = "login.html";
     });
 
 /* Crear las habitaciones que se ponen en el form y enseñarlas en un div*/   
